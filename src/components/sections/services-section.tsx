@@ -17,29 +17,29 @@ export function ServicesSection() {
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
             Услуги
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Наши компетенции</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Что мы делаем</p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 md:gap-x-16 md:gap-y-12 lg:gap-x-24">
           {[
             {
-              title: "Веб-разработка",
-              description: "Создание современных веб-приложений любой сложности",
+              title: "Кухни на заказ",
+              description: "Проектируем и изготавливаем кухни любой сложности — от эконом до премиум. Угловые, прямые, островные.",
               direction: "top",
             },
             {
-              title: "UI/UX Дизайн",
-              description: "Проектирование удобных и красивых интерфейсов",
+              title: "Шкафы-купе",
+              description: "Встроенные и корпусные шкафы точно по вашим размерам. Любые конфигурации наполнения.",
               direction: "right",
             },
             {
-              title: "Мобильные приложения",
-              description: "Кроссплатформенная разработка для iOS и Android",
+              title: "Квартира под ключ",
+              description: "Разрабатываем и реализуем мебель для всей квартиры в едином стиле и в установленные сроки.",
               direction: "left",
             },
             {
-              title: "Консалтинг",
-              description: "Техническая экспертиза и стратегическое планирование",
+              title: "Дизайн-проект",
+              description: "Бесплатный замер и 3D-визуализация будущей мебели перед началом производства.",
               direction: "bottom",
             },
           ].map((service, i) => (
