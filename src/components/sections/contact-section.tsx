@@ -56,7 +56,7 @@ export function ContactSection() {
                   <span className="font-mono text-xs text-foreground/50">Телефон</span>
                 </div>
                 <p className="text-base text-foreground transition-colors group-hover:text-accent md:text-2xl">
-                  +7 (999) 999-99-99
+                  +7 (908) 707-21-01
                 </p>
               </a>
 
@@ -68,9 +68,9 @@ export function ContactSection() {
               >
                 <div className="mb-1 flex items-center gap-2">
                   <Icon name="MapPin" className="h-3 w-3 text-accent/60" />
-                  <span className="font-mono text-xs text-foreground/50">Работаем</span>
+                  <span className="font-mono text-xs text-foreground/50">Адрес фабрики</span>
                 </div>
-                <p className="text-base text-foreground md:text-2xl">Москва и область</p>
+                <p className="text-base text-foreground md:text-xl">Челябинск, ул. 2-я Павелецкая, 28</p>
               </div>
 
               <div
@@ -79,13 +79,19 @@ export function ContactSection() {
                 }`}
                 style={{ transitionDelay: "500ms" }}
               >
-                {["Telegram", "VK", "Instagram", "WhatsApp"].map((social) => (
+                {[
+                  { label: "ВКонтакте", href: "https://vk.com/sofyamebel" },
+                  { label: "WhatsApp", href: "https://wa.me/79087072101" },
+                  { label: "Telegram", href: "https://t.me/+79087072101" },
+                ].map((social) => (
                   <a
-                    key={social}
-                    href="#"
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="border-b border-transparent font-mono text-xs text-foreground/50 transition-all hover:border-accent/60 hover:text-accent"
                   >
-                    {social}
+                    {social.label}
                   </a>
                 ))}
               </div>

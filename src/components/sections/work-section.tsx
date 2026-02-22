@@ -11,18 +11,26 @@ const projects = [
   },
   {
     number: "02",
-    title: "Встроенный шкаф в прихожей",
-    category: "Шкаф-купе · Встроенный · Прихожая",
-    year: "2024",
+    title: "Белая угловая кухня",
+    category: "Белые фасады · Мрамор · Подсветка",
+    year: "2025",
     direction: "right",
-    image: "https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/ece3b13f-f0f8-41a7-9821-3cdfe94da4d5.jpg",
+    image: "https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/713b5099-02ba-442a-b137-9b4f26b66511.jpg",
   },
   {
     number: "03",
+    title: "Встроенный шкаф в прихожей",
+    category: "Шкаф-купе · Классика · Белые фасады",
+    year: "2024",
+    direction: "left",
+    image: "https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/bba588b1-8323-408a-81b0-bfd1b1bee233.jpg",
+  },
+  {
+    number: "04",
     title: "Кухня с голубыми фасадами",
     category: "Голубые фасады · Квартира под ключ",
     year: "2025",
-    direction: "left",
+    direction: "right",
     image: "https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/5fea1d64-9d14-48aa-912a-56ed912e630f.jpg",
   },
 ]
@@ -47,7 +55,7 @@ export function WorkSection() {
           <p className="font-mono text-sm text-accent">/ Работа с клиентами</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
           {projects.map((project, i) => (
             <ClientCard key={i} project={project} index={i} isVisible={isVisible} />
           ))}
@@ -78,7 +86,7 @@ function ClientCard({
       className={`group relative overflow-hidden rounded-xl border border-foreground/10 transition-all duration-700 hover:border-accent/40 ${getRevealClass()}`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div className="relative h-60 overflow-hidden md:h-64">
+      <div className="relative h-44 overflow-hidden md:h-52">
         <img
           src={project.image}
           alt={project.title}

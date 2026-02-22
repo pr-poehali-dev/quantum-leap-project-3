@@ -35,29 +35,38 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
               style={{ transitionDelay: "200ms" }}
             >
               <p className="max-w-md text-sm leading-relaxed text-foreground/80 md:text-base">
-                Мы — Андрей и Александра Рухлядевы. Небольшая мастерская с большим опытом. Каждую кухню и шкаф делаем так, как будто это для собственного дома.
+                Мы — Андрей и Александра Рухлядевы. Собственная фабрика в Челябинске. Изготавливаем на станках ЧПУ — точность до миллиметра, высокое качество.
               </p>
               <p className="max-w-md text-sm leading-relaxed text-foreground/80 md:text-base">
                 Работаем только с качественными материалами, соблюдаем сроки и берём полную ответственность за результат.
               </p>
             </div>
 
-            {/* Фото команды */}
+            {/* Фото оборудования ЧПУ */}
             <div
-              className={`mt-6 transition-all duration-700 md:mt-8 ${
+              className={`mt-5 transition-all duration-700 md:mt-7 ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
               style={{ transitionDelay: "350ms" }}
             >
-              <div className="relative h-32 w-48 overflow-hidden rounded-xl md:h-40 md:w-60">
-                <img
-                  src="https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/12a8c33c-1d44-4a45-921d-a7ffacb28392.jpg"
-                  alt="Андрей и Александра Рухлядевы"
-                  className="h-full w-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                <div className="absolute bottom-2 left-3">
-                  <p className="font-mono text-xs text-white/80">Андрей и Александра</p>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="relative overflow-hidden rounded-xl">
+                  <img
+                    src="https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/a7ade0f7-2d85-44c6-91fa-b3e5971cf5ee.jpg"
+                    alt="Станок ЧПУ WoodTec"
+                    className="h-28 w-full object-cover md:h-32"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <p className="absolute bottom-2 left-2 font-mono text-[10px] text-white/80">Станок ЧПУ</p>
+                </div>
+                <div className="relative overflow-hidden rounded-xl">
+                  <img
+                    src="https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/aa8a385d-dfa3-43fd-946c-8d30db27cd23.jpg"
+                    alt="Кромкооблицовочный станок KDT"
+                    className="h-28 w-full object-cover md:h-32"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <p className="absolute bottom-2 left-2 font-mono text-[10px] text-white/80">Производство</p>
                 </div>
               </div>
             </div>
