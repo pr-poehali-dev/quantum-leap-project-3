@@ -258,39 +258,40 @@ export default function Index() {
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {/* Hero Section */}
-        <section className="relative flex min-h-screen w-screen shrink-0 overflow-hidden">
-          {/* Background: desktop — горизонтальная, mobile — вертикальная */}
-          <div className="absolute inset-0 z-0">
-            {/* Mobile image */}
-            <img
-              src="https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/17ccd91a-6d0f-46c7-83f1-d4b38cacbe58.jpg"
-              alt="Софья Мебель"
-              className="block h-full w-full object-cover object-top md:hidden"
-            />
-            {/* Desktop image */}
-            <img
-              src="https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/bc8e5324-c96c-466d-9ac5-b9bec0648022.jpg"
-              alt="Софья Мебель"
-              className="hidden h-full w-full object-cover object-center md:block"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
-          </div>
+        <section className="relative flex h-screen w-screen shrink-0 overflow-hidden">
+          {/* Тёмный фон */}
+          <div className="absolute inset-0 z-0 bg-[#1a1a1a]" />
 
-          {/* Content */}
-          <div className="relative z-10 flex w-full flex-col justify-end px-6 pb-20 pt-24 md:px-12 md:pb-24">
-            <div className="max-w-2xl">
-              <div className="mb-4 inline-block animate-in fade-in slide-in-from-bottom-4 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-md duration-700">
-                <p className="font-mono text-xs text-white/90">Мебель на заказ · Москва</p>
+          {/* Основной layout */}
+          <div className="relative z-10 flex h-full w-full flex-col md:flex-row">
+
+            {/* Левая колонка — текст */}
+            <div className="flex flex-1 flex-col justify-center px-6 pb-4 pt-20 md:px-12 md:py-0 lg:px-16">
+              {/* Логотип */}
+              <div className="mb-5 animate-in fade-in slide-in-from-bottom-4 duration-700 md:mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/20 bg-white/10">
+                    <span className="font-sans text-lg font-bold text-white">С</span>
+                  </div>
+                  <div>
+                    <p className="font-sans text-base font-semibold uppercase tracking-widest text-white">Софья мебель</p>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-white/50">Ценим качество и комфорт</p>
+                  </div>
+                </div>
               </div>
-              <h1 className="mb-3 animate-in fade-in slide-in-from-bottom-8 font-sans text-4xl font-light leading-[1.1] tracking-tight text-white duration-1000 sm:text-5xl md:text-7xl lg:text-8xl">
-                <span className="text-balance">Мебель на заказ</span>
+
+              <h1 className="mb-3 animate-in fade-in slide-in-from-bottom-8 font-sans text-4xl font-light leading-[1.05] tracking-tight text-white duration-1000 sm:text-5xl md:text-6xl lg:text-7xl">
+                Мебель<br />на заказ
               </h1>
-              <p className="mb-2 animate-in fade-in slide-in-from-bottom-4 font-mono text-xs uppercase tracking-widest text-white/70 duration-700 sm:text-sm">
+
+              <p className="mb-2 animate-in fade-in slide-in-from-bottom-4 font-mono text-xs uppercase tracking-widest text-white/60 duration-700">
                 Дизайн / Производство / Обзоры
               </p>
-              <p className="mb-6 max-w-lg animate-in fade-in slide-in-from-bottom-4 text-sm leading-relaxed text-white/85 duration-1000 delay-200 sm:text-base md:text-lg">
-                Изготавливаем кухни, шкафы и мебель для всей квартиры под ключ. Точно по размерам, в срок, с гарантией.
+
+              <p className="mb-6 max-w-sm animate-in fade-in slide-in-from-bottom-4 text-sm leading-relaxed text-white/80 duration-1000 delay-200 md:text-base">
+                Изготавливаем кухни, шкафы и мебель для всей квартиры под ключ. В срок, с гарантией.
               </p>
+
               <div className="flex animate-in fade-in slide-in-from-bottom-4 flex-col gap-3 duration-1000 delay-300 sm:flex-row sm:items-center">
                 <MagneticButton size="lg" variant="primary" onClick={() => scrollToSection(4)}>
                   Рассчитать стоимость
@@ -299,25 +300,34 @@ export default function Index() {
                   Наши услуги
                 </MagneticButton>
               </div>
-            </div>
 
-            {/* Authors badge */}
-            <div className="absolute bottom-20 right-6 animate-in fade-in slide-in-from-right-4 duration-1000 delay-500 md:bottom-8 md:right-12">
-              <div className="flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-3 py-2 backdrop-blur-md md:gap-3 md:px-4 md:py-3">
-                <span className="text-base md:text-lg">♥</span>
-                <div>
-                  <p className="font-sans text-xs font-semibold text-white">Андрей и Александра</p>
-                  <p className="font-mono text-xs text-white/70">Рухлядевы</p>
+              {/* Бейдж авторов */}
+              <div className="mt-6 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 md:mt-8">
+                <div className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/8 px-3 py-2 backdrop-blur-md">
+                  <span className="text-sm">♥</span>
+                  <p className="font-sans text-xs text-white/80">Андрей и Александра Рухлядевы</p>
                 </div>
               </div>
             </div>
 
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-in fade-in duration-1000 delay-500">
-              <div className="flex items-center gap-2">
-                <p className="font-mono text-xs text-white/80">Листайте вправо</p>
-                <div className="flex h-6 w-12 items-center justify-center rounded-full border border-white/20 bg-white/15 backdrop-blur-md">
-                  <div className="h-2 w-2 animate-pulse rounded-full bg-white/80" />
-                </div>
+            {/* Правая колонка — фото */}
+            <div className="relative flex shrink-0 items-end justify-center md:w-[45%] lg:w-[42%]">
+              <img
+                src="https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/12a8c33c-1d44-4a45-921d-a7ffacb28392.jpg"
+                alt="Андрей и Александра Рухлядевы"
+                className="h-[45vh] w-auto object-contain object-bottom md:h-full md:w-full md:object-cover md:object-top"
+              />
+              {/* Лёгкий градиент слева для плавного перехода */}
+              <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#1a1a1a] to-transparent md:w-24" />
+            </div>
+          </div>
+
+          {/* Листайте вправо */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-in fade-in duration-1000 delay-700">
+            <div className="flex items-center gap-2">
+              <p className="font-mono text-xs text-white/60">Листайте вправо</p>
+              <div className="flex h-6 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-md">
+                <div className="h-2 w-2 animate-pulse rounded-full bg-white/70" />
               </div>
             </div>
           </div>
