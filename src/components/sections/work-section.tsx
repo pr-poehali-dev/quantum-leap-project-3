@@ -1,5 +1,32 @@
 import { useReveal } from "@/hooks/use-reveal"
 
+const projects = [
+  {
+    number: "01",
+    title: "Кухня в тёмном стиле",
+    category: "Кухня · Матовые фасады · Мрамор",
+    year: "2024",
+    direction: "left",
+    image: "https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/8b4346e2-2ec7-48e2-9413-40fe3c081a36.jpg",
+  },
+  {
+    number: "02",
+    title: "Встроенный шкаф в прихожей",
+    category: "Шкаф-купе · Встроенный · Прихожая",
+    year: "2024",
+    direction: "right",
+    image: "https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/ece3b13f-f0f8-41a7-9821-3cdfe94da4d5.jpg",
+  },
+  {
+    number: "03",
+    title: "Кухня с голубыми фасадами",
+    category: "Кухня · Голубые фасады · Квартира под ключ",
+    year: "2025",
+    direction: "left",
+    image: "https://cdn.poehali.dev/projects/0b9623fe-edb8-44f4-841c-541338ebf8ca/bucket/5fea1d64-9d14-48aa-912a-56ed912e630f.jpg",
+  },
+]
+
 export function WorkSection() {
   const { ref, isVisible } = useReveal(0.3)
 
@@ -10,41 +37,19 @@ export function WorkSection() {
     >
       <div className="mx-auto w-full max-w-7xl">
         <div
-          className={`mb-12 transition-all duration-700 md:mb-16 ${
+          className={`mb-8 transition-all duration-700 md:mb-12 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
           }`}
         >
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
             Портфолио
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Реализованные проекты</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Работа с клиентами</p>
         </div>
 
-        <div className="space-y-6 md:space-y-8">
-          {[
-            {
-              number: "01",
-              title: "Кухня в современном стиле",
-              category: "Кухня · Матовые фасады · 4.2 пог. м",
-              year: "2025",
-              direction: "left",
-            },
-            {
-              number: "02",
-              title: "Гардеробная комната",
-              category: "Шкаф-купе · Встроенный · 3 секции",
-              year: "2024",
-              direction: "right",
-            },
-            {
-              number: "03",
-              title: "Квартира под ключ",
-              category: "Кухня + спальня + прихожая · 58 м²",
-              year: "2024",
-              direction: "left",
-            },
-          ].map((project, i) => (
-            <ProjectCard key={i} project={project} index={i} isVisible={isVisible} />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+          {projects.map((project, i) => (
+            <ClientCard key={i} project={project} index={i} isVisible={isVisible} />
           ))}
         </div>
       </div>
@@ -52,12 +57,12 @@ export function WorkSection() {
   )
 }
 
-function ProjectCard({
+function ClientCard({
   project,
   index,
   isVisible,
 }: {
-  project: { number: string; title: string; category: string; year: string; direction: string }
+  project: (typeof projects)[0]
   index: number
   isVisible: boolean
 }) {
@@ -70,25 +75,27 @@ function ProjectCard({
 
   return (
     <div
-      className={`group flex items-center justify-between border-b border-foreground/10 py-6 transition-all duration-700 hover:border-foreground/20 md:py-8 ${getRevealClass()}`}
-      style={{
-        transitionDelay: `${index * 150}ms`,
-        marginLeft: index % 2 === 0 ? "0" : "auto",
-        maxWidth: index % 2 === 0 ? "85%" : "90%",
-      }}
+      className={`group relative overflow-hidden rounded-2xl transition-all duration-700 ${getRevealClass()}`}
+      style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div className="flex items-baseline gap-4 md:gap-8">
-        <span className="font-mono text-sm text-foreground/30 transition-colors group-hover:text-foreground/50 md:text-base">
-          {project.number}
-        </span>
-        <div>
-          <h3 className="mb-1 font-sans text-2xl font-light text-foreground transition-transform duration-300 group-hover:translate-x-2 md:text-3xl lg:text-4xl">
-            {project.title}
-          </h3>
-          <p className="font-mono text-xs text-foreground/50 md:text-sm">{project.category}</p>
+      <div className="relative h-64 overflow-hidden md:h-72">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+        <div className="absolute bottom-0 left-0 right-0 p-4">
+          <div className="mb-1 flex items-center gap-2">
+            <span className="font-mono text-xs text-white/50">{project.number}</span>
+            <div className="h-px flex-1 bg-white/20" />
+            <span className="font-mono text-xs text-white/50">{project.year}</span>
+          </div>
+          <h3 className="font-sans text-lg font-light text-white">{project.title}</h3>
+          <p className="font-mono text-xs text-white/60">{project.category}</p>
         </div>
       </div>
-      <span className="font-mono text-xs text-foreground/30 md:text-sm">{project.year}</span>
     </div>
   )
 }

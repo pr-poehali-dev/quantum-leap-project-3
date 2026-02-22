@@ -45,8 +45,8 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
           {/* Right side - Stats with creative layout */}
           <div className="flex flex-col justify-center space-y-6 md:space-y-12">
             {[
-              { value: "320+", label: "Проектов", sublabel: "Сданных клиентам", direction: "right" },
-              { value: "7", label: "Лет", sublabel: "На рынке мебели", direction: "left" },
+              { value: "3000+", label: "Проектов", sublabel: "Сданных клиентам", direction: "right" },
+              { value: "10", label: "Лет", sublabel: "На рынке мебели", direction: "left" },
               { value: "100%", label: "Гарантия", sublabel: "На все изделия 2 года", direction: "right" },
             ].map((stat, i) => {
               const getRevealClass = () => {
