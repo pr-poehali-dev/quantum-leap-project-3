@@ -4,34 +4,34 @@
 
 @layer base {
   :root {
-    /* Dark theme by default - matching origin */
-    --background: 0 0% 7%;
-    --foreground: 0 0% 96%;
+    /* Sofya Mebel — тёмная тема с бежево-коричневым акцентом */
+    --background: 0 0% 8%;
+    --foreground: 30 15% 92%;
 
-    --card: 0 0% 9%;
-    --card-foreground: 0 0% 96%;
+    --card: 0 0% 10%;
+    --card-foreground: 30 15% 92%;
 
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 30 15% 92%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 96%;
+    --primary: 28 42% 60%;
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 30 15% 92%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 35 82% 55%;
-    --accent-foreground: 0 0% 96%;
+    --accent: 28 42% 60%;
+    --accent-foreground: 0 0% 10%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 96%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 217 91% 60%;
+    --border: 28 10% 18%;
+    --input: 28 10% 18%;
+    --ring: 28 42% 60%;
 
     --chart-1: 217 91% 60%;
     --chart-2: 35 82% 55%;

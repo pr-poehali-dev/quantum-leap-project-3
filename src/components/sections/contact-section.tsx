@@ -1,32 +1,22 @@
-import { Mail, MapPin } from "lucide-react"
 import { useReveal } from "@/hooks/use-reveal"
 import { useState, type FormEvent } from "react"
 import { MagneticButton } from "@/components/magnetic-button"
+import Icon from "@/components/ui/icon"
 
 export function ContactSection() {
   const { ref, isVisible } = useReveal(0.3)
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+  const [formData, setFormData] = useState({ name: "", phone: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      return
-    }
-
+    if (!formData.name || !formData.phone || !formData.message) return
     setIsSubmitting(true)
-
-    // Simulate form submission (replace with actual API call later)
     await new Promise((resolve) => setTimeout(resolve, 1500))
-
     setIsSubmitting(false)
     setSubmitSuccess(true)
-    setFormData({ name: "", email: "", message: "" })
-
-    // Reset success message after 5 seconds
+    setFormData({ name: "", phone: "", message: "" })
     setTimeout(() => setSubmitSuccess(false), 5000)
   }
 
@@ -37,34 +27,36 @@ export function ContactSection() {
     >
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:gap-16 lg:gap-24">
+
+          {/* Левая колонка */}
           <div className="flex flex-col justify-center">
             <div
-              className={`mb-6 transition-all duration-700 md:mb-12 ${
+              className={`mb-6 transition-all duration-700 md:mb-10 ${
                 isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
               }`}
             >
               <h2 className="mb-2 font-sans text-4xl font-light leading-[1.05] tracking-tight text-foreground md:mb-3 md:text-7xl lg:text-8xl">
                 Замерим
                 <br />
-                и посчитаем
+                <span className="text-foreground/30">и посчитаем</span>
               </h2>
-              <p className="font-mono text-xs text-foreground/60 md:text-base">/ Бесплатно и без обязательств</p>
+              <p className="font-mono text-xs text-accent md:text-sm">/ Бесплатно и без обязательств</p>
             </div>
 
-            <div className="space-y-4 md:space-y-8">
+            <div className="space-y-4 md:space-y-6">
               <a
-                href="mailto:info@flowrise.dev"
+                href="tel:+79999999999"
                 className={`group block transition-all duration-700 ${
                   isVisible ? "translate-x-0 opacity-100" : "-translate-x-16 opacity-0"
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
                 <div className="mb-1 flex items-center gap-2">
-                  <Mail className="h-3 w-3 text-foreground/60" />
-                  <span className="font-mono text-xs text-foreground/60">Email</span>
+                  <Icon name="Phone" className="h-3 w-3 text-accent/60" />
+                  <span className="font-mono text-xs text-foreground/50">Телефон</span>
                 </div>
-                <p className="text-base text-foreground transition-colors group-hover:text-foreground/70 md:text-2xl">
-                  sofya@mebel.ru
+                <p className="text-base text-foreground transition-colors group-hover:text-accent md:text-2xl">
+                  +7 (999) 999-99-99
                 </p>
               </a>
 
@@ -75,14 +67,14 @@ export function ContactSection() {
                 style={{ transitionDelay: "350ms" }}
               >
                 <div className="mb-1 flex items-center gap-2">
-                  <MapPin className="h-3 w-3 text-foreground/60" />
-                  <span className="font-mono text-xs text-foreground/60">Локация</span>
+                  <Icon name="MapPin" className="h-3 w-3 text-accent/60" />
+                  <span className="font-mono text-xs text-foreground/50">Работаем</span>
                 </div>
                 <p className="text-base text-foreground md:text-2xl">Москва и область</p>
               </div>
 
               <div
-                className={`flex gap-2 pt-2 transition-all duration-700 md:pt-4 ${
+                className={`flex gap-3 pt-1 transition-all duration-700 ${
                   isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
                 }`}
                 style={{ transitionDelay: "500ms" }}
@@ -91,7 +83,7 @@ export function ContactSection() {
                   <a
                     key={social}
                     href="#"
-                    className="border-b border-transparent font-mono text-xs text-foreground/60 transition-all hover:border-foreground/60 hover:text-foreground/90"
+                    className="border-b border-transparent font-mono text-xs text-foreground/50 transition-all hover:border-accent/60 hover:text-accent"
                   >
                     {social}
                   </a>
@@ -100,7 +92,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right side - Minimal form */}
+          {/* Правая колонка — форма */}
           <div className="flex flex-col justify-center">
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div
@@ -109,13 +101,14 @@ export function ContactSection() {
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
-                <label className="mb-1 block font-mono text-xs text-foreground/60 md:mb-2">Имя</label>
+                <label className="mb-1 block font-mono text-xs text-foreground/50 md:mb-2">Имя</label>
                 <input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="w-full border-b border-foreground/30 bg-transparent py-1.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/50 focus:outline-none md:py-2 md:text-base"
+                  className="w-full border-b bg-transparent py-1.5 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none md:py-2 md:text-base"
+                  style={{ borderColor: "hsl(28 10% 25%)" }}
                   placeholder="Ваше имя"
                 />
               </div>
@@ -126,13 +119,14 @@ export function ContactSection() {
                 }`}
                 style={{ transitionDelay: "350ms" }}
               >
-                <label className="mb-1 block font-mono text-xs text-foreground/60 md:mb-2">Телефон</label>
+                <label className="mb-1 block font-mono text-xs text-foreground/50 md:mb-2">Телефон</label>
                 <input
                   type="tel"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   required
-                  className="w-full border-b border-foreground/30 bg-transparent py-1.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/50 focus:outline-none md:py-2 md:text-base"
+                  className="w-full border-b bg-transparent py-1.5 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none md:py-2 md:text-base"
+                  style={{ borderColor: "hsl(28 10% 25%)" }}
                   placeholder="+7 (___) ___-__-__"
                 />
               </div>
@@ -143,14 +137,15 @@ export function ContactSection() {
                 }`}
                 style={{ transitionDelay: "500ms" }}
               >
-                <label className="mb-1 block font-mono text-xs text-foreground/60 md:mb-2">Сообщение</label>
+                <label className="mb-1 block font-mono text-xs text-foreground/50 md:mb-2">Что нужно сделать?</label>
                 <textarea
                   rows={3}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
-                  className="w-full border-b border-foreground/30 bg-transparent py-1.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/50 focus:outline-none md:py-2 md:text-base"
-                  placeholder="Опишите что хотите: кухня, шкаф, вся квартира..."
+                  className="w-full border-b bg-transparent py-1.5 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none md:py-2 md:text-base"
+                  style={{ borderColor: "hsl(28 10% 25%)" }}
+                  placeholder="Кухня, шкаф, вся квартира..."
                 />
               </div>
 
@@ -160,15 +155,11 @@ export function ContactSection() {
                 }`}
                 style={{ transitionDelay: "650ms" }}
               >
-                <MagneticButton
-                  variant="primary"
-                  size="lg"
-                  className="w-full disabled:opacity-50"
-                >
-                  {isSubmitting ? "Отправка..." : "Отправить"}
+                <MagneticButton variant="primary" size="lg" className="w-full disabled:opacity-50">
+                  {isSubmitting ? "Отправка..." : "Оставить заявку"}
                 </MagneticButton>
                 {submitSuccess && (
-                  <p className="mt-3 text-center font-mono text-sm text-foreground/80">Сообщение отправлено!</p>
+                  <p className="mt-3 text-center font-mono text-sm text-accent">Заявка отправлена! Мы свяжемся с вами.</p>
                 )}
               </div>
             </form>
